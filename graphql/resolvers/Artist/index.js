@@ -64,8 +64,9 @@ export default {
     }
   },
   Artist: {
-    movement: async ({ movements }, args, context, info) => {
-      return await Movement.find({ _id : movements });
+    movement: async ({ movement }, args, context, info) => {
+      console.log(movement);
+      return await Movement.find({ _id: movement });
     }
   }
 };

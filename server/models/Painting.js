@@ -21,7 +21,7 @@ const PaintingSchema = new Schema({
   description: {
     type: String
   },
-  movements: {
+  movement: {
     type: Schema.Types.ObjectId,
     ref: "Movement"
   },

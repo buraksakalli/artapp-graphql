@@ -5,7 +5,7 @@ export default `
     date: String,
     artist: Artist!
     description: String
-    movements: Movement!
+    movement: Movement!
     dimensions: Dimension,
     location: Location,
     genre: String,
@@ -54,7 +54,7 @@ export default `
     date: String,
     artist: ID!
     description: String
-    movements: ID!
+    movement: ID!
     dimensions: DimensionInput,
     location: LocationInput,
     genre: String,
@@ -67,7 +67,7 @@ export default `
     date: String,
     artist: ID!
     description: String
-    movements: ID!
+    movement: ID!
     dimensions: DimensionInput,
     location: LocationInput,
     genre: String,

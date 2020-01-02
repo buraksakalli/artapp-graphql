@@ -23,7 +23,7 @@ const ArtistSchema = new Schema({
   nationality: {
     type: String
   },
-  movements: {
+  movement: {
     type: Schema.Types.ObjectId,
     ref: "Movement"
   },

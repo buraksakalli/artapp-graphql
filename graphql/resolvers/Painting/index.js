@@ -18,7 +18,7 @@ export default {
         date: u.date,
         artist: u.artist,
         description: u.description,
-        movements: u.movements,
+        movement: u.movement,
         dimensions: u.dimensions,
         location: u.location,
         genre: u.genre,
@@ -35,7 +35,7 @@ export default {
         date: painting.date,
         artist: painting.artist,
         description: painting.description,
-        movements: painting.movements,
+        movement: painting.movement,
         dimensions: painting.dimensions,
         location: painting.location,
         genre: painting.genre,
@@ -69,10 +69,11 @@ export default {
   },
   Painting: {
     artist: async ({ artist }, args, context, info) => {
-      return await Artist.findById(artist);
+      return await Artist.find({ _id: artist });
     },
-    movements: async ({ movements }, args, context, info) => {
-      return await Movement.findById({ movements });
+    movement: async ({ movement }, args, context, info) => {
+      console.log(movement);
+      return await Movement.find({ _id: movement });
     }
   }
 };
