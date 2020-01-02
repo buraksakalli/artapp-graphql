@@ -1,17 +1,24 @@
 export default `
   type Artist {
-    _id: String!
-    name: String!
-    date: String,
-    artist: ID!
-    description: String
-    movements: ID!
-    dimensions: Dimension,
-    location: Location,
-    genre: String,
-    createdAt: String,
+    name: String,
+    born: Date,
+    died: Date,
+    movement: Movement,
+    nationality: String,
     reference: [String],
-    picture: String!,
+    createdAt: String,
+    picture: String,
+    description: String
+  }
+
+  type Date {
+    date: String,
+    location: String,
+  }
+
+  input DateInput {
+    date: String,
+    location: String,
   }
 
   type Query {
@@ -25,27 +32,27 @@ export default `
     deleteArtist(_id: String!): Artist!
   }
 
-  input Dimension {
-    width: String
-    height: String
-    unit: String
+  input CreateArtistInput {
+    name: String!,
+    born: DateInput,
+    died: DateInput,
+    movement: ID!,
+    nationality: String,
+    reference: [String],
+    createdAt: String,
+    picture: String!,
+    description: String
   }
 
-  input Location {
-    country: String
-    city: String
-    museum: String
-  }
-
-  input CreateUserInput {
-    name: String!
-    email: String!
-    age: Int!
-  }
-  
-  input UpdateUserInput {
-    name: String
-    email: String
-    age: Int
+  input UpdateArtistInput {
+    name: String!,
+    born: DateInput,
+    died: DateInput,
+    movement: ID!,
+    nationality: String,
+    reference: [String],
+    createdAt: String,
+    picture: String,
+    description: String
   } 
 `;

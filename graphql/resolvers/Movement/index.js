@@ -54,13 +54,6 @@ export default {
       });
     }
   },
-  Subscription: {
-    movement: {
-      subscribe: (parent, args, { pubsub }) => {
-        //return pubsub.asyncIterator(channel)
-      }
-    }
-  },
   Movement: {
     artists: async ({ _id }, args, context, info) => {
       return await Artist.find({ movement: _id });

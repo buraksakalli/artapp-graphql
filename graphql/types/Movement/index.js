@@ -1,39 +1,37 @@
 export default `
-  type Comment {
+  type Movement {
     _id: ID!
     name: String
     description: String
+    artists: [Artist!]!
+    paintings: [Painting!]!
     createdAt: String
   }
 
   type Query {
-    comment(_id: ID!): [Comment!]!
-    comments: [Comment!]!
+    movement(_id: ID!): Movement!
+    movements: [Movement!]!
   }
 
   type Mutation {
-    createComment(comment: CreateCommentInput!): Comment!
-    updateComment(_id: ID!, comment: UpdateCommentInput): Comment!
-    deleteComment(_id: ID!): Comment!
+    createMovement(movement: CreateMovementInput!): Movement!
+    updateMovement(_id: ID!, movements: UpdateMovementInput): Movement!
+    deleteMovement(_id: ID!): Movement!
   }
 
-  type Subscription {
-    comment(postId: ID!): CommentSubscriptionPayload!
-  }
-
-  type CommentSubscriptionPayload {
+  type MovementSubscriptionPayload {
     mutation: MutationType!
-    comment: Comment!
+    movement: Movement!
   }
 
-  input CreateCommentInput {
-    text: String!
-    post: ID!
-    author: ID!
+  input CreateMovementInput {
+    name: String
+    description: String
   }
   
-  input UpdateCommentInput {
-    text: String
+  input UpdateMovementInput {
+    name: String
+    description: String
   }
 
   enum MutationType {

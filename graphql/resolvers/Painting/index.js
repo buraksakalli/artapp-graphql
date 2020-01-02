@@ -2,8 +2,6 @@ import Artist from "../../../server/models/Artist";
 import Movement from "../../../server/models/Movement";
 import Painting from "../../../server/models/Painting";
 
-import { transformPost } from "../merge";
-
 export default {
   Query: {
     painting: async (parent, { _id }, context, info) => {
@@ -67,13 +65,6 @@ export default {
           err ? reject(err) : resolve(res);
         });
       });
-    }
-  },
-  Subscription: {
-    painting: {
-      subscribe: (parent, args, { pubsub }) => {
-        //return pubsub.asyncIterator(channel)
-      }
     }
   },
   Painting: {

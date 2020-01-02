@@ -46,16 +46,16 @@ export default {
         });
       });
     },
-    updateUser: async (parent, { _id, user }, context, info) => {
+    updateArtist: async (parent, { _id, artist }, context, info) => {
       return new Promise((resolve, reject) => {
-        Artist.findByIdAndUpdate(_id, { $set: { ...user } }, { new: true }).exec(
+        Artist.findByIdAndUpdate(_id, { $set: { ...artist } }, { new: true }).exec(
           (err, res) => {
             err ? reject(err) : resolve(res);
           }
         );
       });
     },
-    deleteUser: async (parent, { _id }, context, info) => {
+    deleteArtist: async (parent, { _id }, context, info) => {
       return new Promise((resolve, reject) => {
         Artist.findByIdAndDelete(_id).exec((err, res) => {
           err ? reject(err) : resolve(res);
@@ -63,7 +63,7 @@ export default {
       });
     }
   },
-  User: {
+  Artist: {
     movement: async ({ movements }, args, context, info) => {
       return await Movement.find({ _id : movements });
     }
