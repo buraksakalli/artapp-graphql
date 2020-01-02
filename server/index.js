@@ -10,7 +10,7 @@ const { mongoURI: db } = process.env;
 const pubsub = new PubSub();
 
 const options = {
-  port: process.env.PORT || "4000",
+  port: process.env.PORT || "4001",
   endpoint: "/graphql",
   subscriptions: "/subscriptions",
   playground: "/playground"

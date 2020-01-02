@@ -4,6 +4,7 @@ export default `
     born: Date,
     died: Date,
     movement: Movement,
+    paintings: [Painting],
     nationality: String,
     reference: [String],
     createdAt: String,
