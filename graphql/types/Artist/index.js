@@ -1,5 +1,6 @@
 export default `
   type Artist {
+    _id: ID,
     name: String,
     born: Date,
     died: Date,
@@ -23,7 +24,7 @@ export default `
   }
 
   type Query {
-    artist(_id: ID!): Artist!
+    artist(_id: ID, name: String): Artist!
     artists: [Artist!]!
   }
 

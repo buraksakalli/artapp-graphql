@@ -16,6 +16,9 @@ const MovementSchema = new Schema({
   },
   createdAt: {
     type: Date
+  },
+  picture: {
+    type: String
   }
 });
 

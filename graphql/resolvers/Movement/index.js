@@ -18,7 +18,8 @@ export default {
         description: u.description,
         createdAt: u.createdAt,
         artists: u.artists,
-        paintings: u.paintings
+        paintings: u.paintings,
+        picture: u.picture
       }));
     }
   },
@@ -27,6 +28,7 @@ export default {
       const newMovement = await new Movement({
         name: movement.name,
         description: movement.description,
+        picture: movement.picture
       });
 
       return new Promise((resolve, reject) => {

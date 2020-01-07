@@ -39,8 +39,8 @@ export default `
   }
 
   type Query {
-    painting(_id: ID!): Painting!
-    paintings: [Painting!]!
+    painting(_id: ID): Painting!
+    paintings(artistId: ID): [Painting!]!
   }
 
   type Mutation {

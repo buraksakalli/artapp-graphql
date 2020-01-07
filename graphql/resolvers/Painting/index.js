@@ -4,13 +4,25 @@ import Painting from "../../../server/models/Painting";
 
 export default {
   Query: {
-    painting: async (parent, { _id }, context, info) => {
-      return await Painting.findOne({ _id }).exec();
+    painting: async (parent, { _id, artistId }, context, info) => {
+      if (_id)
+        return await Painting.findOne({ _id }).exec();
+      else if (artistId)
+        return await Painting.findOne({ artist: artistId }).exec();
+
     },
-    paintings: async (parent, args, context, info) => {
-      const res = await Painting.find({})
-        .populate()
-        .exec();
+    paintings: async (parent, { artistId }, context, info) => {
+      let res;
+      if (artistId) {
+        res = await Painting.find({ artist: artistId })
+          .populate()
+          .exec();
+      }
+      else {
+        res = await Painting.find({})
+          .populate()
+          .exec();
+      }
 
       return res.map(u => ({
         _id: u._id.toString(),
@@ -24,7 +36,7 @@ export default {
         genre: u.genre,
         createdAt: u.createdAt,
         reference: u.reference,
-        picture: u.picture
+        picture: u.picture,
       }));
     }
   },

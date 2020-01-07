@@ -4,8 +4,12 @@ import Movement from "../../../server/models/Movement";
 
 export default {
   Query: {
-    artist: async (parent, { _id }, context, info) => {
-      return await Artist.findOne({ _id }).exec();
+    artist: async (parent, { _id, name }, context, info) => {
+      if (_id) {
+        return await Artist.findOne({ _id }).exec();
+      } else if (name) {
+        return await Artist.findOne({ name: name }).exec();
+      }
     },
     artists: async (parent, args, context, info) => {
       const artists = await Artist.find({})
@@ -68,7 +72,7 @@ export default {
       return await Movement.findById(movement);
     },
     paintings: async ({ _id }, args, context, info) => {
-      return await Painting.find({artist: _id});
+      return await Painting.find({ artist: _id });
     }
   }
 };

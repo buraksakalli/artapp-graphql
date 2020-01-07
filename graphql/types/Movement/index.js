@@ -5,7 +5,8 @@ export default `
     description: String
     artists: [Artist!]!
     paintings: [Painting!]!
-    createdAt: String
+    createdAt: String,
+    picture: String
   }
 
   type Query {
@@ -26,12 +27,14 @@ export default `
 
   input CreateMovementInput {
     name: String
-    description: String
+    description: String,
+    picture: String
   }
   
   input UpdateMovementInput {
     name: String
-    description: String
+    description: String,
+    picture: String
   }
 
   enum MutationType {
