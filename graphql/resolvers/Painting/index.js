@@ -4,19 +4,26 @@ import Painting from "../../../server/models/Painting";
 
 export default {
   Query: {
-    painting: async (parent, { _id, artistId }, context, info) => {
+    painting: async (parent, { _id, artistId, movementId }, context, info) => {
       if (_id)
         return await Painting.findOne({ _id }).exec();
       else if (artistId)
         return await Painting.findOne({ artist: artistId }).exec();
+      else if (movementId)
+        return await Painting.findOne({ movement: movementId })
 
     },
-    paintings: async (parent, { artistId }, context, info) => {
+    paintings: async (parent, { artistId, movementId }, context, info) => {
       let res;
       if (artistId) {
         res = await Painting.find({ artist: artistId })
           .populate()
           .exec();
+      }
+      if (movementId) {
+        res = await Painting.find({ movement: movementId })
+          .populate()
+          .exec()
       }
       else {
         res = await Painting.find({})

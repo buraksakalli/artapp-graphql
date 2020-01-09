@@ -41,6 +41,7 @@ export default `
   type Query {
     painting(_id: ID): Painting!
     paintings(artistId: ID): [Painting!]!
+    paintings(movementId: ID): [Painting!]!
   }
 
   type Mutation {
