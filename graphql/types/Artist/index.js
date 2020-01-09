@@ -25,7 +25,7 @@ export default `
 
   type Query {
     artist(_id: ID, name: String): Artist!
-    artists: [Artist!]!
+    artists(movementId: ID): [Artist!]!
   }
 
   type Mutation {

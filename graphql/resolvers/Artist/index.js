@@ -11,12 +11,19 @@ export default {
         return await Artist.findOne({ name: name }).exec();
       }
     },
-    artists: async (parent, args, context, info) => {
-      const artists = await Artist.find({})
-        .populate()
-        .exec();
-
-      return artists.map(u => ({
+    artists: async (parent, { movementId }, context, info) => {
+      let res;
+      if (movementId) {
+        res = await Artist.find({ movement: movementId })
+          .populate()
+          .exec()
+      } else {
+        res = await Artist.find({})
+          .populate()
+          .exec();
+      }
+      
+      return res.map(u => ({
         _id: u._id.toString(),
         name: u.name,
         born: u.born,

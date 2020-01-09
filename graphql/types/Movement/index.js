@@ -10,7 +10,7 @@ export default `
   }
 
   type Query {
-    movement(_id: ID!): Movement!
+    movement(_id: ID, name: String ): Movement!
     movements: [Movement!]!
   }
 

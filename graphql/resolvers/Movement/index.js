@@ -4,8 +4,11 @@ import Painting from "../../../server/models/Painting";
 
 export default {
   Query: {
-    movement: async (parent, { _id }, context, info) => {
-      return await Movement.find({ _id });
+    movement: async (parent, { _id, name }, context, info) => {
+      if (_id)
+        return await Movement.findOne({ _id }).exec();
+      else if (name)
+        return await Movement.findOne({ name: name }).exec()
     },
     movements: async (parent, args, context, info) => {
       const res = await Movement.find({})
