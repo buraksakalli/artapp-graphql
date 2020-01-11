@@ -19,7 +19,7 @@ export default {
           .populate()
           .exec();
       }
-      if (movementId) {
+      else if (movementId) {
         res = await Painting.find({ movement: movementId })
           .populate()
           .exec()
