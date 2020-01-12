@@ -10,7 +10,7 @@ export default `
     reference: [String],
     createdAt: String,
     picture: String,
-    description: String
+    description: String,
   }
 
   type Date {

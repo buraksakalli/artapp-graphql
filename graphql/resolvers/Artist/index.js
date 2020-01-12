@@ -22,7 +22,7 @@ export default {
           .populate()
           .exec();
       }
-      
+
       return res.map(u => ({
         _id: u._id.toString(),
         name: u.name,
